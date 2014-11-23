@@ -1,4 +1,9 @@
 <?php 
+if(isset($_COOKIE)) {
+            if(isset($_COOKIE['remember_me'])) {
+                $_SESSION['uID'] = $_COOKIE['remember_me'];
+            }
+        }
 echo "<header id=\"header\" class=\"alt\"><nav id=\"nav\">";
     echo "<ul><li><a href=\"index.php\">Home</a></li>";
       echo "<li> <a href=\"\" class=\"icon fa-angle-down\">Categories</a>";
