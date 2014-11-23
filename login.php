@@ -4,7 +4,7 @@
 	{ 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$message = "";
+	$message = " ";
 	include("dbconnect.php");
 	$query = "SELECT uID FROM user WHERE uID='" . $_POST["username"] . "' and password = '". $_POST["password"]."'";
 	$result = mysqli_query($conn, $query);
