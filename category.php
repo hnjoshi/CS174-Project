@@ -74,7 +74,7 @@ include("nav.php");
 			print "<td> $type </td>";
 			print "<td> $tag </td>";
 					
-			print "<td><input type=\"checkbox\"  class=\"input-checkbox\" id=\"checkbox1\" name=\"fav[]\" value=\"$link|$icon\">ADD</td>";
+			print "<td><input type=\"checkbox\"  class=\"input-checkbox\" id=\"checkbox1\" name=\"fav[]\" value=\"$link|$icon\"><label for=\"checkbox1\" class=\"input-label\"> ADD</label></td>";
 			print "</tr>";
         }
 		
