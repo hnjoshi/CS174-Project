@@ -236,6 +236,7 @@ input[type="text"],  input[type="password"],  input[type="email"],  select {
 textarea {
 	padding: 0.75em 1em;
 }
+/*checkbox css */
 input[type=checkbox].input-checkbox{
     width: 1px;
     height: 1px;
@@ -246,6 +247,7 @@ input[type=checkbox].input-checkbox{
     padding: 0;
     border: 0;
 }
+
 input[type=checkbox].input-checkbox + label.input-label{
     
     display: inline-block;
