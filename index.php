@@ -54,8 +54,8 @@
     <iframe src="http://slideful.com/v20141109_0950427538172798_ijf.htm" frameborder="0" style="border:0px;padding:0px;margin:0px;width:740px;height:410px;" allowtransparency="true">
 <a href="http://slideful.com/v20141109_0950427538172798_pf.htm">View the slide show</a></iframe> 
      </span>
-        <h2>Judo Picture Slideshow</h2>
-        <p>Some of the best matches in Judo! Check out our videos to find out more :)</p>
+        <h2>Taichi Picture Slideshow</h2>
+        <p>Check out our videos to find out more :)</p>
       </section>
 <div class="row">
     <div class="6u">
