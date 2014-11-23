@@ -90,7 +90,7 @@ include("nav.php");
 <!-- Footer -->
 <footer id="footer">
   <ul class="copyright">
-    <li>&copy; Jeffrey Su. All rights reserved.</li>
+    <li>&copy; CS174. All rights reserved.</li>
   </ul>
 </footer>
 </body>

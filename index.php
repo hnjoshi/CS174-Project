@@ -12,12 +12,10 @@
 <script src="js/skel.min.js"></script>
 <script src="js/skel-layers.min.js"></script>
 <script src="js/init.js"></script>
-<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 <noscript>
 <link rel="stylesheet" href="css/skel.css" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style-wide.css" />
-<link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" media="screen" />
 </noscript>
 </head>
 <body class="landing">
@@ -77,16 +75,14 @@
   </div>
   <div class="row">
     <div class="6u">
-    <!-- link: https://www.youtube.com/watch?v=pFM-xRKbSec-->
-      <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/pFM-xRKbSec"><img src="https://i.ytimg.com/vi/pFM-xRKbSec/mqdefault.jpg" alt="" /></a></span>
+      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/pFM-xRKbSec"><img src="https://i.ytimg.com/vi/pFM-xRKbSec/mqdefault.jpg" alt="" /></a></span>
         <h3>Judo Techniques</h3>
         <p>A couple (more like many!) judo techniques. Mostly a guy being thown down many many times.</p>
       </section>
     </div>
     <div class="6u">
-    <!-- link: https://www.youtube.com/watch?v=cJTVWcOrUHs-->
     
-      <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/cJTVWcOrUHs"><img src="https://i.ytimg.com/vi/cJTVWcOrUHs/mqdefault.jpg" alt="" /></a></span>
+      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/cJTVWcOrUHs"><img src="https://i.ytimg.com/vi/cJTVWcOrUHs/mqdefault.jpg" alt="" /></a></span>
         <h3>This is Judo! 2014</h3>
         <p>Another compilation of Judo matches from 2014 showing the beauty of Judo.</p>
       </section>
@@ -94,16 +90,14 @@
   </div>
   <div class="row">
     <div class="6u">
-    <!-- link: https://www.youtube.com/watch?v=rrfdHBxK6iI-->
     
-      <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/rrfdHBxK6iI"><img src="https://i.ytimg.com/vi/rrfdHBxK6iI/mqdefault.jpg" alt="" /></a></span>
+      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/rrfdHBxK6iI"><img src="https://i.ytimg.com/vi/rrfdHBxK6iI/mqdefault.jpg" alt="" /></a></span>
         <h3>JAPANESE JUDO</h3>
         <p>A compilation of Judo matches in Japan. A great video showing very nice judo matches.</p>
       </section>
     </div>
     <div class="6u">
-    <!-- link: https://www.youtube.com/watch?v=-ldbkg9K70E-->
-      <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/-ldbkg9K70E"><img src="https://i.ytimg.com/vi/-ldbkg9K70E/mqdefault.jpg" alt="" /></a></span>
+      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/-ldbkg9K70E"><img src="https://i.ytimg.com/vi/-ldbkg9K70E/mqdefault.jpg" alt="" /></a></span>
         <h3>Japan vs Russia Judo match! 2014</h3>
         <p>A fine match between a Russian Judo athlete and a Japanese Judo athlete. </p>
       </section>
@@ -114,23 +108,8 @@
 <!-- Footer -->
 <footer id="footer">
   <ul class="copyright">
-    <li>&copy; Jeffrey Su. All rights reserved.</li>
+    <li>&copy; CS174. All rights reserved.</li>
   </ul>
 </footer>
-<script type="text/javascript">
-$(document).ready(function() {
-	$(".various").fancybox({
-		maxWidth	: 800,
-		maxHeight	: 600,
-		fitToView	: false,
-		width		: '70%',
-		height		: '70%',
-		autoSize	: false,
-		closeClick	: false,
-		openEffect	: 'none',
-		closeEffect	: 'none'
-	});
-});
-</script>
 </body>
 </html>
