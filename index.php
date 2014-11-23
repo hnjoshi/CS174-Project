@@ -21,7 +21,7 @@
 </noscript>
 </head>
 <body class="landing">
-<?php include("nav.php"); ?>
+<?php include("navmain.php"); ?>
 <!-- Banner -->
 <section id="banner">
   <h2>CS174 Fun Video!</h2>
