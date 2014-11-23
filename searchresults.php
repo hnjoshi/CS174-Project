@@ -75,7 +75,7 @@ include("nav.php");
   </table>
 </section>
 <section id="main" class="container small">
-  <form method="post" action="search.php">
+  <form method="post" action="searchresults.php">
     <div class="row uniform half collapse-at-2">
       <div class="8u">
         <input type="text" name="search" id="text" />

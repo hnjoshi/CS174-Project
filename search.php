@@ -25,7 +25,7 @@ include("nav.php");
 				<header>
 					<h2>Search for a Video</h2>
                     </header>
-                    <form method="post" action="search.php">
+                    <form method="post" action="searchresults.php">
 					<div class="row uniform half collapse-at-2">
 						<div class="8u">
 							<input type="text" name="search" id="text" />

@@ -27,8 +27,8 @@ $(document).ready(function() {
 </head><body>
 <?php
 include("dbconnect.php"); 
-$ser= $_POST['search'];
-$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where videotype = 'Application'";
+$ser= $_GET['value'];
+$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where $ser";
 $result = mysqli_query($conn, $query);
 include("nav.php");
 ?>
@@ -74,18 +74,7 @@ include("nav.php");
     </tbody>
   </table>
 </section>
-<section id="main" class="container small">
-  <form method="post" action="search.php">
-    <div class="row uniform half collapse-at-2">
-      <div class="8u">
-        <input type="text" name="search" id="text" />
-      </div>
-      <div class="4u">
-        <input type="submit" value="Search Again" class="fit" />
-      </div>
-    </div>
-  </form>
-</section>
+
 
 <!-- Footer -->
 <footer id="footer">
