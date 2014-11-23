@@ -1,12 +1,8 @@
-<?php
-ini_set('session.gc_maxlifetime', 1800);
-	session_set_cookie_params(1800);
-	session_start();
-	?>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>Search Results</title>
+
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -18,10 +14,11 @@ ini_set('session.gc_maxlifetime', 1800);
 <script src="js/init.js"></script>
 <script src="js/jquery.dataTables.js"></script>
 <noscript>
+
 <link rel="stylesheet" href="css/jquery.dataTables.css" />
 <link rel="stylesheet" href="css/skel.css" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/style-wide.css" />
+<link rel="stylesheet" href="css/style-wide.css" />  
 </noscript>
 <script>			
 $(document).ready(function() {
@@ -56,9 +53,13 @@ include("nav.php");
         <th>View Count</a></th>
         <th>Video Type</a></th>
         <th>Tag</a></th>
+        <th>ADD TO FAVORITES</th>
       </tr>
     </thead>
     <tbody>
+    
+    <form action="get_videos.php" method="post">
+    	
       <?php
 	  while (list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = mysqli_fetch_array($result))
         {
@@ -72,12 +73,17 @@ include("nav.php");
 			print "<td> $count </td>";
 			print "<td> $type </td>";
 			print "<td> $tag </td>";
+					
+			print "<td><input type=\"checkbox\"  class=\"input-checkbox\" id=\"checkbox1\" name=\"fav[]\" value=\"$link|$icon\">ADD</td>";
 			print "</tr>";
         }
+		
 		mysqli_free_result($result);
 	  ?>
     </tbody>
-  </table>
+  	</table>
+   	 <input type="submit" value="Add To Favorites" />
+     </form>
 </section>
 
 
