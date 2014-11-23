@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -25,7 +26,7 @@
 <header id="header" class="alt">
   <nav id="nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li> <a href="" class="icon fa-angle-down">Categories</a>
         <ul>
           <li> <a href="">Video Length</a>
@@ -74,8 +75,20 @@
           </li>
         </ul>
       </li>
-      <li><a href="addvideo.html" class="button">Add a Video</a></li>
-      <li><a href="search.html" class="button">Search</a></li>
+      <li><a href="addvideo.php" class="button">Add a Video</a></li>
+      <li><a href="search.php" class="button">Search</a></li>
+      <?php 
+	  if(isset($_SESSION['uID'])) 
+	  {
+		  echo "<li><a href=\"user.php\" class=\"button\">My Account</a></li>";
+		  echo "<li><a href=\"logout.php\" class=\"button\">Logout</a></li>";
+	  }
+	  else
+	  {
+		  echo "<li><a href=\"login.php\" class=\"button\">Login</a></li>";
+		  echo "<li><a href=\"register.php\" class=\"button\">Register</a></li>";
+	  }
+	  ?>
     </ul>
   </nav>
 </header>
@@ -83,19 +96,18 @@
 <!-- Banner -->
 <section id="banner">
   <h2>CS174 Fun Video!</h2>
-  <p>By The Super Coders</p>
   <ul class="actions">
-    <li><a href="addvideo.html" class="button special">Add a Video!</a></li>
+    <li><a href="addvideo.php" class="button special">Add a Video!</a></li>
   </ul>
 </section>
 
 <!-- Main -->
-<section id="main" class="container">
-
+<section id="main" class="container"> 
+  
   <!-- CTA -->
   <section id="cta">
     <h2>Search for a Video!</h2>
-    <form method="post" action="search.php">
+    <form method="post" action="searchresults.php">
       <div class="row uniform half collapse-at-2">
         <div class="8u">
           <input type="text" name="search" id="text" />
@@ -113,7 +125,7 @@
     </header>
     <span class="image featured">
     <iframe src="http://slideful.com/v20141109_0950427538172798_ijf.htm" frameborder="0" style="border:0px;padding:0px;margin:0px;width:740px;height:410px;" allowtransparency="true">
-<a href="http://slideful.com/v20141109_0950427538172798_pf.htm">View the slide show</a></iframe>
+<a href="http://slideful.com/v20141109_0950427538172798_pf.htm">View the slide show</a></iframe> 
      </span>
         <h2>Judo Picture Slideshow</h2>
         <p>Some of the best matches in Judo! Check out our videos to find out more :)</p>
@@ -144,7 +156,7 @@
     </div>
     <div class="6u">
     <!-- link: https://www.youtube.com/watch?v=cJTVWcOrUHs-->
-
+    
       <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/cJTVWcOrUHs"><img src="https://i.ytimg.com/vi/cJTVWcOrUHs/mqdefault.jpg" alt="" /></a></span>
         <h3>This is Judo! 2014</h3>
         <p>Another compilation of Judo matches from 2014 showing the beauty of Judo.</p>
@@ -154,7 +166,7 @@
   <div class="row">
     <div class="6u">
     <!-- link: https://www.youtube.com/watch?v=rrfdHBxK6iI-->
-
+    
       <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/rrfdHBxK6iI"><img src="https://i.ytimg.com/vi/rrfdHBxK6iI/mqdefault.jpg" alt="" /></a></span>
         <h3>JAPANESE JUDO</h3>
         <p>A compilation of Judo matches in Japan. A great video showing very nice judo matches.</p>

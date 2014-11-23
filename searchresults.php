@@ -28,7 +28,7 @@ $(document).ready(function() {
 <?php
 include("dbconnect.php"); 
 $ser= $_POST['search'];
-$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where videotype = 'Application'";
+$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where title like '%$ser%' || description like '%$ser%' || tag like '%$ser%' ";
 $result = mysqli_query($conn, $query);
 include("nav.php");
 ?>
