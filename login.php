@@ -4,7 +4,6 @@
 	{ 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$message = " ";
 	include("dbconnect.php");
 	$query = "SELECT uID FROM user WHERE uID='" . $_POST["username"] . "' and password = '". $_POST["password"]."'";
 	$result = mysqli_query($conn, $query);
@@ -69,8 +68,7 @@
         </div>
       </div>
       <div class="message">
-        <?php if($message!="") { echo $message; } ?>
-        
+        <?php if($message) { echo $message; } ?>
       </div>
       <br>
       <div class="row uniform">
