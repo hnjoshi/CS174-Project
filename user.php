@@ -28,30 +28,16 @@ include("nav.php");
 <!-- Main -->
 <section id="main" class="container small">
 	<?php 
-		
 		if(isset($_SESSION["uID"])) {
-			$uID = $_SESSION["uID"];
-		} else if(isset($_COOKIE['remeber_me'])) {
-				$uID = $_COOKIE['remember_me'];
-		} else { 
-		//If they are not logged in, have them logg in first.
-			$_SESSION['notloggedin'] = "YOU MUST BE LOGGED IN TO ADD VIDEOS TO FAVORITES LIST. PLEASE LOGIN!";
-			
-			header("Location:login.php");
+			$uID = $_SESSION["uID"];	
+		} else if(isset($_COOKIE)) {
+			$uID = $_COOKIE['remember_me'];
 		}
-	?>
+		
+		print "Welcome $uID";
+	 ?>
     
-    	
-    <h1> 
-    	Here is what you have selected: 
-        
-        <?php
-        $arr = $_POST['fav'];
-        var_dump($arr);
-    	
-		?>
-    </h1>
-				
+    			
 </section>
 <!-- Footer -->
 <footer id="footer">

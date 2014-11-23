@@ -2,6 +2,7 @@
 	ini_set('session.gc_maxlifetime', 1800);
 	session_set_cookie_params(1800);
 	session_start();
+
 	if(isset($_POST["username"]))
 	{ 
 	$username = $_POST['username'];
@@ -62,6 +63,17 @@
   <div class="box">
     <form method=post action="login.php">
       <div class="row uniform half collapse-at-2">
+      	
+        <!-- Jay's code -->
+        <?php 
+			$not_loggedin_message = $_SESSION['notloggedin'];
+			
+			if(isset($not_loggedin_message)) {
+				print "<h1>$not_loggedin_message</h1>";
+			}	
+		 ?>
+        <!-- Ends here  -->
+        
         <div class="6u">
           <input type="text" name="username" placeholder="Username" />
         </div>
