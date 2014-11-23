@@ -11,6 +11,11 @@
 	$row = mysqli_fetch_array($result);
 	if(is_array($row)) {
 	$_SESSION["uID"] = $row[uID];
+	  if(isset($_POST['remember']))
+	  {
+		  $year = time() + 31536000;
+		  setcookie('remember_me', $_POST['username'], $year);
+	  }
 	header("Location:user.php");
 	} 
 	if(!is_array($row)) 
@@ -61,12 +66,22 @@
         </div>
         <div class="6u">
           <input type="password" name="password" placeholder="Password" />
-          <label><input type="checkbox" name="remember" value="1">Remember Me </label>
         </div>
       </div>
       <div class="message">
         <?php if($message!="") { echo $message; } ?>
         
+      </div>
+      <br>
+      <div class="row uniform">
+      <div class="12u">
+      <ul class="actions align-center">
+            <li>
+              <input type="checkbox" class="input-checkbox" id= "checkbox1" name="remember" value="1">
+       		<label for="checkbox1" class="input-label"> Remember me!</label>
+            </li>
+          </ul>    
+      </div>
       </div>
       <div class="row uniform">
         <div class="12u">

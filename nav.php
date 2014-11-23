@@ -1,5 +1,4 @@
 <?php 
-session_start();
 echo "<header id=\"header\" class=\"skel-layers-fixed\"><nav id=\"nav\">";
     echo "<ul><li><a href=\"index.php\">Home</a></li>";
       echo "<li> <a href=\"\" class=\"icon fa-angle-down\">Categories</a>";
