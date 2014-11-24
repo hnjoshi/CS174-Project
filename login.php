@@ -15,8 +15,8 @@
 	$_SESSION["uID"] = $row[uID];
 	  if(isset($_POST['remember']))
 	  {
-		  $year = time() + 31536000;
-		  setcookie('remember_me', $_POST['username'], $year);
+		  $month = time() + 2629740;
+		  setcookie('remember_me', $_POST['username'], $month);
 	  }
 	header("Location:user.php");
 	} 
@@ -27,7 +27,6 @@
 	}
 	if(isset($_SESSION["uID"])) 
 	{
-		
 	  header("Location:user.php");		
 	}
 
