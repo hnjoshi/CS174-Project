@@ -66,9 +66,9 @@
       	
         <!-- Jay's code -->
         <?php 
-			$not_loggedin_message = $_SESSION['notloggedin'];
-			
-			if(isset($not_loggedin_message)) {
+			if(isset($_SESSION['notloggedin'])) {
+				
+				$not_loggedin_message = $_SESSION['notloggedin'];
 				print "<h1>$not_loggedin_message</h1>";
 			}	
 		 ?>
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="message">
-        <?php if($message) { echo $message; } ?>
+        <?php if(isset($message)) { echo $message; } ?>
       </div>
       <br>
       <div class="row uniform">
