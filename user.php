@@ -67,8 +67,9 @@ include("nav.php");
 			}
 			unset($_SESSION["tempvideostorage"]);
 		}
-			
-		var_dump($_SESSION['favorites']);
+		
+		/**	
+		var_dump($_SESSION['favorites']); **/
 					
 		//Display the videos!!!!!
 		if(isset($_SESSION["favorites"]["$uID"])) {
