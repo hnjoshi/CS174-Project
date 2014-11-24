@@ -20,8 +20,8 @@ ini_set('session.gc_maxlifetime', 1800);
 		$age = $_POST['age'];
 		
 		$query = "INSERT INTO user "
-                ." (`uID`, `password`, `name`, `age`, `email`, `phoneNumber`) VALUES "
-                ."('$uID', '$pass', '$name', '$age', '$email', '$phone')";
+                ." (`uID`, `password`, `name`, `email`) VALUES "
+                ."('$uID', '$pass', '$name', '$email')";
 		mysqli_query($conn, $query);
 		header("Location:user.php");
 	}
@@ -44,6 +44,46 @@ ini_set('session.gc_maxlifetime', 1800);
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style-wide.css" />
 </noscript>
+<script type="text/javascript">
+
+  function checkForm(form)
+  {
+    if(form.uID.value == "") {
+      alert("Error: Username cannot be blank!");
+      form.uID.focus();
+      return false;
+    }
+
+    if(form.password.value != "" && form.password.value == form.repassword.value) {
+      if(form.password.value.length < 8) {
+        alert("Error: Password must contain at least eight characters!");
+        form.password.focus();
+        return false;
+      }
+      re = /[0-9]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        form.password.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(form.password.value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        form.password.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.password.focus();
+      return false;
+    }
+
+    alert("Welcome to Fun Video " + form.username.value);
+    return true;
+  }
+
+</script>
+
 </head>
 <body>
 
@@ -56,7 +96,7 @@ ini_set('session.gc_maxlifetime', 1800);
                 <p>Upon registration you will be able favorite videos! </p>
             </header>
             <div class="box">
-                <form method="post" action="register.php">
+                <form method="post" onsubmit="return checkForm(this);" action="register.php">
                     <div class="row uniform half collapse-at-2">
                         <div class="6u">
                             <input id="name" name="name" placeholder="Name" required="" tabindex="1" type="text" required>
@@ -66,13 +106,9 @@ ini_set('session.gc_maxlifetime', 1800);
                         </div>
                     </div>
                     <div class="row uniform half collapse-at-2">
-                        <div class="6u">
-                            <input name="age" placeholder="Age" required min="15" type="text">
+                        <div class="12u">
+                           <input type="email" name="email" id="email" value="" placeholder="Email Address" required>
                         </div>
-                        <div class="6u">
-                            <input id="phone" name="phone" placeholder="Phone Number" required type="text" required>
-                        </div>
-
                     </div>
                     <div class="row uniform half collapse-at-2">
                         <div class="6u">
@@ -80,11 +116,6 @@ ini_set('session.gc_maxlifetime', 1800);
                         </div>
                         <div class="6u">
                             <input type="password" id="repassword" name="repassword" required="" placeholder="Verify Your Password" required>
-                        </div>
-                    </div>
-                    <div class="row uniform half collapse-at-2">
-                        <div class="12u">
-                           <input type="email" name="email" id="email" value="" placeholder="Email Address" required>
                         </div>
                     </div>
                     <div class="row uniform">
