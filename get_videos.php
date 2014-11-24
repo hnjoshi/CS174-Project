@@ -39,18 +39,13 @@ include("nav.php");
 			
 			header("Location:login.php");
 		}
+		
+		if(isset($uID)) {
+			$_SESSION['tempvideostorage'] = $_POST['fav'];
+			
+			header("Location:user.php");
+ 		} 
 	?>
-    
-    	
-    <h1> 
-    	Here is what you have selected: 
-        
-        <?php
-        $arr = $_POST['fav'];
-        var_dump($arr);
-    	
-		?>
-    </h1>
 				
 </section>
 <!-- Footer -->

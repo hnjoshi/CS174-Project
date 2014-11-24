@@ -34,10 +34,54 @@ include("nav.php");
 			$uID = $_COOKIE['remember_me'];
 		}
 		
-		print "Welcome $uID";
+		print "<h1 align='center'>Welcome $uID</h1>";		
+		if(isset($_SESSION["tempvideostorage"])) {
+			if(isset($_SESSION["favorites"])) {
+				if (array_key_exists("$uID", $_SESSION["favorites"])) { // USER EXIST, add to his exisiting collection.
+					$arr = $_SESSION["favorites"]["$uID"];
+					$arr = array_merge($arr, $_SESSION["tempvideostorage"]);
+					$_SESSION["favorites"]["$uID"] = $arr;
+					
+					/**
+					print "Exisiting ARRAY EXISINTING USER ID: " . PHP_EOL . PHP_EOL;
+					print "Here is the dump: " . PHP_EOL . PHP_EOL;
+					
+					print_r($_SESSION["favorites"]); **/
+				} else  { // USER does not exist, create a key for him first. 
+					array_push($_SESSION["favorites"]["$uID"] = $_SESSION["tempvideostorage"]);
+					
+					/**
+					print "Exisiting ARRAY NEW USER ID: " . PHP_EOL . PHP_EOL;
+					print "Here is the dump: " . PHP_EOL . PHP_EOL;
+					
+					print_r($_SESSION["favorites"]); **/
+				}	
+			} else { // Create favorites array 
+				$_SESSION["favorites"] = array("$uID" => $_SESSION["tempvideostorage"]);
+					
+					/**
+					print "NEW ARRAY IS CREATED" . PHP_EOL . PHP_EOL;
+					print "Here is the dump: " . PHP_EOL . PHP_EOL;
+					
+					print_r($_SESSION["favorites"]); **/
+			}
+			unset($_SESSION["tempvideostorage"]);
+		}
+			
+		var_dump($_SESSION['favorites']);
+					
+		//Display the videos!!!!!
+		if(isset($_SESSION["favorites"]["$uID"])) {
+			$values = $_SESSION["favorites"]["$uID"];
+			
+			print "<h1>This are your favorite videos</h1>";
+			foreach($values as $v) {
+				$arr = explode("|",$v);
+				print "<p><a href=\"$arr[0]\"><img src=\"$arr[1]\" alt='VIDEO' /></a></p>";
+			}
+		}
 	 ?>
-    
-    			
+     		
 </section>
 <!-- Footer -->
 <footer id="footer">
