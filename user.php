@@ -6,7 +6,7 @@ ini_set('session.gc_maxlifetime', 1800);
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Search</title>
+<title>My Account</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -34,7 +34,7 @@ include("nav.php");
 			$uID = $_COOKIE['remember_me'];
 		}
 		
-		print "<h1 align='center'>Welcome $uID</h1>";		
+		print "<header> <h2>Welcome <em> $uID </em></h2></header>";		
 		if(isset($_SESSION["tempvideostorage"])) {
 			if(isset($_SESSION["favorites"])) {
 				if (array_key_exists("$uID", $_SESSION["favorites"])) { // USER EXIST, add to his exisiting collection.
@@ -75,7 +75,7 @@ include("nav.php");
 		if(isset($_SESSION["favorites"]["$uID"])) {
 			$values = $_SESSION["favorites"]["$uID"];
 			
-			print "<h1>This are your favorite videos</h1>";
+			print "<header><h3>These are your favorite videos: </h3></header>";
 			foreach($values as $v) {
 				$arr = explode("|",$v);
 				print "<p><a href=\"$arr[0]\"><img src=\"$arr[1]\" alt='VIDEO' /></a></p>";
