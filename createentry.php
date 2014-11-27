@@ -51,7 +51,7 @@ include ("nav.php");
     <h2>Thanks!</h2>
     <p>Your video has now been added to our database</p>
   </header>
-  <header> <a href="addvideo.php" class="button">Add Another</a> <a href="search.html" class="button">Search for a Video</a> </header>
+  <header> <a href="addvideo.php" class="button">Add Another</a> <a href="search.php" class="button">Search for a Video</a> </header>
 </section>
 
 <!-- Footer -->
