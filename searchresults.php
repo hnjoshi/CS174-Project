@@ -44,6 +44,7 @@ include("nav.php");
   </header>
 </section>
 <section id="main" class="container large">
+  <form action="get_videos.php" method=post>
   <table id="results" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>
@@ -56,10 +57,14 @@ include("nav.php");
         <th>View Count</a></th>
         <th>Video Type</a></th>
         <th>Tag</a></th>
+        <th>ADD TO FAVORITES</th>
+
       </tr>
     </thead>
     <tbody>
       <?php
+	            $c = 1;
+
 	  while (list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = mysqli_fetch_array($result))
         {
 			print "<tr>";
@@ -72,12 +77,25 @@ include("nav.php");
 			print "<td> $count </td>";
 			print "<td> $type </td>";
 			print "<td> $tag </td>";
+			print "<td><input type=\"checkbox\"  class=\"input-checkbox\" id=\"checkbox$c\" name=\"fav[]\" value=\"$link|$icon\"><label for=\"checkbox$c\" class=\"input-label\"> ADD</label></td>";
+			                $c++;
+
 			print "</tr>";
         }
 		mysqli_free_result($result);
 	  ?>
     </tbody>
   </table>
+            <div class="row uniform">
+            <div class="12u">
+              <ul class="actions align-center">
+                <li>
+                  <input type="submit" value="Add to Favorites!" />
+                </li>
+              </ul>
+            </div>
+          </div>
+  </form>
 </section>
 <section id="main" class="container small">
   <form method="post" action="searchresults.php">
