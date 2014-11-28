@@ -31,9 +31,12 @@ $(document).ready(function() {
 	</script>
 </head><body>
 <?php
+ini_set('session.gc_maxlifetime', 1800);
+	session_set_cookie_params(1800);
+	session_start();
 include("dbconnect.php"); 
 $ser= $_POST['search'];
-$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where title like '%$ser%' || description like '%$ser%' || tag like '%$ser%' ";
+$query = "Select id, videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where title like '%$ser%' || description like '%$ser%' || tag like '%$ser%' ";
 $result = mysqli_query($conn, $query);
 include("nav.php");
 ?>
@@ -48,6 +51,7 @@ include("nav.php");
   <table id="results" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>
+      <?php if($_SESSION['type']=='Admin') { echo "<th> Edit Video </th>";} ?>
         <th>Video Link</th>
         <th>Video Title</a></th>
         <th>Video Length</a></th>
@@ -65,9 +69,13 @@ include("nav.php");
       <?php
 	            $c = 1;
 
-	  while (list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = mysqli_fetch_array($result))
+	  while (list($id, $link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = mysqli_fetch_array($result))
         {
 			print "<tr>";
+			if($_SESSION['type']=="Admin") 
+				{ 
+				echo "<td><a href=\"editvideo.php?id=$id\" class=\"button\">Edit</a> </td>";
+				} 
 			echo "<td><a href=\"$link\" target=\"_blank\"> <img src=\"$icon\" width=\"100\" height=\"100\"></a> </td>";
 			print "<td> $title </td>";
 			print "<td> $length </td>";

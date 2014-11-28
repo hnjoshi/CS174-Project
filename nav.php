@@ -2,6 +2,7 @@
 if(isset($_COOKIE)) {
             if(isset($_COOKIE['remember_me'])) {
                 $_SESSION['uID'] = $_COOKIE['remember_me'];
+				$_SESSION['type'] = $_COOKIE['type'];
             }
         }
 echo "<header id=\"header\" class=\"skel-layers-fixed\"><nav id=\"nav\">";
@@ -40,7 +41,6 @@ echo "<header id=\"header\" class=\"skel-layers-fixed\"><nav id=\"nav\">";
       echo "<li><a href=\"search.php\" class=\"button\">Search</a></li>";
 	  if(isset($_SESSION['uID'])) 
 	  {
-		  echo "<li><a href=\"edit.php\" class=\"button\">Edit Video Information</a></li>";
 		  echo "<li><a href=\"user.php\" class=\"button\">My Account</a></li>";
 		  echo "<li><a href=\"logout.php\" class=\"button\">Logout</a></li></ul></nav></header>";
 	  }

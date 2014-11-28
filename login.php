@@ -8,15 +8,17 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	include("dbconnect.php");
-	$query = "SELECT uID FROM user WHERE uID='" . $_POST["username"] . "' and password = '". $_POST["password"]."'";
+	$query = "SELECT uID, type FROM user WHERE uID='" . $_POST["username"] . "' and password = '". $_POST["password"]."'";
 	$result = mysqli_query($conn, $query);
 	$row = mysqli_fetch_array($result);
 	if(is_array($row)) {
-	$_SESSION["uID"] = $row[uID];
+	$_SESSION["uID"] = $row['uID'];
+	$_SESSION["type"] = $row['type'];
 	  if(isset($_POST['remember']))
 	  {
 		  $month = time() + 2629740;
 		  setcookie('remember_me', $_POST['username'], $month);
+		  setcookie('type', $row['type'], $month);
 	  }
 	header("Location:user.php");
 	} 
