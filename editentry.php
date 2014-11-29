@@ -2,6 +2,7 @@
 ini_set('session.gc_maxlifetime', 1800);
 	session_set_cookie_params(1800);
 	session_start();
+	$ser= $_GET['id'];
 	?>
 <!DOCTYPE HTML>
 <html>
@@ -10,7 +11,6 @@ ini_set('session.gc_maxlifetime', 1800);
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.dropotron.min.js"></script>
 <script src="js/jquery.scrollgress.min.js"></script>
@@ -22,7 +22,6 @@ ini_set('session.gc_maxlifetime', 1800);
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style-wide.css" />
 </noscript>
-<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head><body>
 <?php include("dbconnect.php"); 
 $tmp = substr($_POST['link'], -11);
@@ -39,7 +38,7 @@ $tag= $_POST['tag'];
 
 
 $query = "update fun_video set "
-                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag' WHERE `id`='154'";
+                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag' WHERE `id`='$ser'";
 mysqli_query($conn,$query);
 
 include ("nav.php");   
@@ -48,7 +47,7 @@ include ("nav.php");
 <section id="main" class="container small">
   <header>
     <h2>Thanks!</h2>
-    <p>Your video has now been edited to our database</p>
+    <p>Your video has now been edited in our database</p>
   </header>
 </section>
 
