@@ -49,7 +49,7 @@ include("nav.php");
 					
 					print_r($_SESSION["favorites"]); **/
 				} else  { // USER does not exist, create a key for him first. 
-					array_push($_SESSION["favorites"]["$uID"] = $_SESSION["tempvideostorage"]);
+					array_push($_SESSION["favorites"]["$uID"], $_SESSION["tempvideostorage"]);
 					
 					/**
 					print "Exisiting ARRAY NEW USER ID: " . PHP_EOL . PHP_EOL;
@@ -76,10 +76,26 @@ include("nav.php");
 		if(isset($_SESSION["favorites"]["$uID"])) {
 			$values = $_SESSION["favorites"]["$uID"];
 			
-			print "<header><h3>These are your favorite videos: </h3></header>";
+			print "<header><h3>These are your latest favorite videos: </h3></header>";
 			foreach($values as $v) {
 				$arr = explode("|",$v);
 				print "<p><a href=\"$arr[0]\"><img src=\"$arr[1]\" alt='VIDEO' /></a></p>";
+			}
+		} else {
+			include("dbconnect.php"); 
+			$query = "Select fvideos from user where uID = '$uID'";
+			$result = mysqli_query($conn, $query);
+			if (list($fvid) = mysqli_fetch_array($result))
+            {
+				$fvid = explode("$$", $fvid);
+				print "<header><h3>These are your favorite videos: </h3></header>";
+				
+				foreach($fvid as $v) {
+					if(!empty($v)){		
+					$arr = explode("|",$v);
+					print "<p><a href=\"$arr[0]\"><img src=\"$arr[1]\" alt='VIDEO' /></a></p>";}
+				}
+					
 			}
 		}
 	 ?>
