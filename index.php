@@ -5,7 +5,7 @@ session_start(); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>CS174 Bonus HW</title>
+<title>CS174 Project</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />

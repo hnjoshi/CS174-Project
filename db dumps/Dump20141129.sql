@@ -54,41 +54,26 @@ UNLOCK TABLES;
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `uID` varchar(15) NOT NULL,
   `password` varchar(50) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `type` enum('User','Admin') NOT NULL DEFAULT 'User',
-  `fvideos` varchar(5000) DEFAULT NULL,
-  PRIMARY KEY (`uID`,`email`)
+  `fvideos` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('aasdf1','secret123','Jeff','asdf@asdf.com','User',NULL),('admin1','secret123','adminuser','admin@fun.com','Admin',NULL),('asdf','asdf123456','asdf','asdf@asd.com','User',NULL),('asdf1','secret123','asdf','asdf@asd.com','User',NULL),('jay','jay','Jay','jay@jay.com','User','http://www.youtube.com/embed/9w1RPmXKBY0|http://i.ytimg.com/vi/9w1RPmXKBY0/mqdefault.jpg$$http://www.youtube.com/embed/B8kx7pW_T18|http://i.ytimg.com/vi/B8kx7pW_T18/mqdefault.jpg$$http://www.youtube.com/embed/GgU3K7uq2_M|http://i.ytimg.com/vi/GgU3K7uq2_M/mqdefault.jpg'),('jeff','asdf','Jeff','asdf@adf.com','User',NULL),('jeff','secret123','Jeff','jeff@man.com','User',NULL),('test1','test1','testman1','test@test.com','User','http://www.youtube.com/embed/72yaPmAH3uw|http://i.ytimg.com/vi/72yaPmAH3uw/mqdefault.jpg');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `user` (`uID`, `password`, `name`, `email`, `type`, `fvideos`) VALUES
+('admin1', 'secret123', 'adminuser', 'admin@fun.com', 'Admin', ''),
+('agrawal', 'testing123', 'saurav', 'sauravagrawal21@gmail.com', 'User', ''),
+('secretman', 'secret123', 'myname', 'secret@123.com', 'User', ''),
+('test1', 'test1', 'testman1', 'test@test.com', 'User', 'http://www.youtube.com/embed/2WPQJoqmGPo|http://i.ytimg.com/vi/2WPQJoqmGPo/mqdefault.jpg$$http://www.youtube.com/embed/eJuudvIMZs0|http://i.ytimg.com/vi/eJuudvIMZs0/mqdefault.jpg$$http://www.youtube.com/embed/GgU3K7uq2_M|http://i.ytimg.com/vi/GgU3K7uq2_M/mqdefault.jpg'),
+('test2', 'test2', 'test2', 'test.com', 'User', ''),
+('test3', 'test3', 'testman3', 'testman@test.com', 'User', ''),
+('test5', 'test5', 'test5', 'test3@asdf.com', 'User', '');
 
---
--- Dumping routines for database 'fun_video'
---
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2014-11-29 16:11:31
