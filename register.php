@@ -14,6 +14,7 @@ ini_set('session.gc_maxlifetime', 1800);
 		$name = $_POST['name'];
 		$uID = $_POST['uID'];
 		$_SESSION['uID'] = $uID;
+		$_SESSION['type'] = "User";
 		$email = $_POST['email'];
 		$phone = $_POST['phone'];
 		$pass = $_POST['password'];
