@@ -47,7 +47,7 @@ include("nav.php");
   </header>
 </section>
 <section id="main" class="container large">
-  <form action="get_videos.php" method=post>
+  <form action="user.php" method=post>
   <table id="results" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>
