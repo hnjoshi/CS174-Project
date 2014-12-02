@@ -16,9 +16,9 @@
 	$_SESSION["type"] = $row['type'];
 	  if(isset($_POST['remember']))
 	  {
-		  $month = time() + 2629740;
-		  setcookie('remember_me', $_POST['username'], $month);
-		  setcookie('type', $row['type'], $month);
+		  $min = time() + 60;
+		  setcookie('remember_me', $_POST['username'], $min);
+		  setcookie('type', $row['type'], $min);
 	  }
 	header("Location:user.php");
 	} 
