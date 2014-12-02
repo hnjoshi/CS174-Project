@@ -33,6 +33,7 @@ ini_set('session.gc_maxlifetime', 1800);
 	session_start();
 include("dbconnect.php"); 
 $ser= $_GET['value'];
+$ser = str_replace('\\', '', $ser);
 $query = "Select id, videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where $ser";
 $result = mysqli_query($conn, $query);
 include("nav.php");
