@@ -43,6 +43,7 @@ echo "<header id=\"header\" class=\"skel-layers-fixed\"><nav id=\"nav\">";
 	  if(isset($_SESSION['uID'])) 
 	  {
 		  echo "<li><a href=\"user.php\" class=\"button\">My Account</a></li>";
+		  echo "<li><a href=\"deletefav.php\" class=\"button\">Delete Favorite Video</a></li>";
 		  echo "<li><a href=\"logout.php\" class=\"button\">Logout</a></li></ul></nav></header>";
 	  }
 	  else
