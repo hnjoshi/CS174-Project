@@ -8,7 +8,7 @@ if(isset($_SESSION["favorites"]["$uID"])) {
 	include("dbconnect.php");
 	$values = $_SESSION["favorites"]["$uID"];
 	$value = implode("$$", $values);
-	$query = "UPDATE user SET fvideos ='$value' WHERE uID= '$uID'";
+	$query = "UPDATE user SET fvideos ='$value' WHERE email = '$uID'";
 	$result = mysqli_query($conn, $query);
 } 
 

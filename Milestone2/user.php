@@ -83,7 +83,7 @@ include("nav.php");
 			}
 		} else {
 			include("dbconnect.php"); 
-			$query = "Select fvideos from user where uID = '$uID'";
+			$query = "Select fvideos from user where email = '$uID'";
 			$result = mysqli_query($conn, $query);
 			if (list($fvid) = mysqli_fetch_array($result))
             {
