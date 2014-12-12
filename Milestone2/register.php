@@ -100,10 +100,10 @@ ini_set('session.gc_maxlifetime', 1800);
                 <form method="post" onsubmit="return checkForm(this);" action="register.php">
                     <div class="row uniform half collapse-at-2">
                         <div class="6u">
-                            <input id="name" name="name" placeholder="Name" required="" tabindex="1" type="text" required>
+                            <input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text" required>
                         </div>
                         <div class="6u">
-                            <input id="name" name="uID" placeholder="Username" required="" tabindex="1" type="text" required>
+                            <input id="name" name="uID" placeholder="Last Name" required="" tabindex="1" type="text" required>
                         </div>
                     </div>
                     <div class="row uniform half collapse-at-2">

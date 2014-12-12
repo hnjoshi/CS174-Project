@@ -3,28 +3,28 @@
 	session_set_cookie_params(1800);
 	session_start();
 
-	if(isset($_POST["username"]))
+	if(isset($_POST["email"]))
 	{ 
-	$username = $_POST['username'];
+	$email = $_POST['email'];
 	$password = $_POST['password'];
 	include("dbconnect.php");
-	$query = "SELECT uID, type FROM user WHERE uID='" . $_POST["username"] . "' and password = '". $_POST["password"]."'";
+	$query = "SELECT email, type FROM user WHERE email='" . $_POST["email"] . "' and password = '". $_POST["password"]."'";
 	$result = mysqli_query($conn, $query);
 	$row = mysqli_fetch_array($result);
 	if(is_array($row)) {
-	$_SESSION["uID"] = $row['uID'];
+	$_SESSION["uID"] = $row['email'];
 	$_SESSION["type"] = $row['type'];
 	  if(isset($_POST['remember']))
 	  {
 		  $min = time() + 60;
-		  setcookie('remember_me', $_POST['username'], $min);
+		  setcookie('remember_me', $_POST['email'], $min);
 		  setcookie('type', $row['type'], $min);
 	  }
 	header("Location:user.php");
 	} 
 	if(!is_array($row)) 
 	{
-		$message = "Invalid Username or Password!";
+		$message = "Invalid Email Address or Password!";
 	}
 	}
 	if(isset($_SESSION["uID"])) 
@@ -65,7 +65,6 @@
     <form method=post action="login.php">
       <div class="row uniform half collapse-at-2">
       	
-        <!-- Jay's code -->
         <?php 
 			if(isset($_SESSION['notloggedin'])) {
 				
@@ -73,10 +72,9 @@
 				print "<h1>$not_loggedin_message</h1>";
 			}	
 		 ?>
-        <!-- Ends here  -->
         
         <div class="6u">
-          <input type="text" name="username" placeholder="Username" />
+          <input type="text" name="email" placeholder="Email Address" />
         </div>
         <div class="6u">
           <input type="password" name="password" placeholder="Password" />

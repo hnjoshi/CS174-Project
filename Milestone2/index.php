@@ -54,55 +54,50 @@ session_start(); ?>
       <p>Help us by adding more videos using the "Add a Video" button above!!</p>
     </header>
     <span class="image featured">
-    <iframe src="http://slideful.com/v20141109_0950427538172798_ijf.htm" frameborder="0" style="border:0px;padding:0px;margin:0px;width:740px;height:410px;" allowtransparency="true">
-<a href="http://slideful.com/v20141109_0950427538172798_pf.htm">View the slide show</a></iframe> 
+    
      </span>
-        <h2>Taichi Picture Slideshow</h2>
-        <p>Check out our videos to find out more :)</p>
       </section>
 <div class="row">
     <div class="6u">
-    <!-- link: https://www.youtube.com/watch?v=pRZqRjxkHpk -->
-      <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/pRZqRjxkHpk"><img src="https://i.ytimg.com/vi/pRZqRjxkHpk/mqdefault.jpg" alt="" /></a></span>
-        <h3>Mr. Bean's Judo Class</h3>
-        <p>A very funny video of Mr. Bean attending Judo class. Looks like he's deathly afraid of the instructor :) </p>
+      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
+        <h3>PLACEHOLDER</h3>
+        <p>PLACEHOLDER </p>
       </section>
     </div>
     <div class="6u">
-     <!-- link: https://www.youtube.com/watch?v=be-BoM-WokY-->
-      <section class="box special"> <span class="image featured"><a class="various fancybox.iframe" href="http://www.youtube.com/embed/be-BoM-WokY"><img src="https://i.ytimg.com/vi/be-BoM-WokY/mqdefault.jpg" alt="" /></a></span>
-        <h3>Best Judo Matches</h3>
-        <p>Here is a compilation video of some of the best matches in judo. Lots of throwing!</p>
+      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
+        <h3>PLACEHOLDER</h3>
+        <p>PLACEHOLDER</p>
       </section>
     </div>
   </div>
   <div class="row">
     <div class="6u">
-      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/pFM-xRKbSec"><img src="https://i.ytimg.com/vi/pFM-xRKbSec/mqdefault.jpg" alt="" /></a></span>
-        <h3>Judo Techniques</h3>
-        <p>A couple (more like many!) judo techniques. Mostly a guy being thown down many many times.</p>
+      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
+        <h3>PLACEHOLDER</h3>
+        <p>PLACEHOLDER</p>
       </section>
     </div>
     <div class="6u">
     
-      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/cJTVWcOrUHs"><img src="https://i.ytimg.com/vi/cJTVWcOrUHs/mqdefault.jpg" alt="" /></a></span>
-        <h3>This is Judo! 2014</h3>
-        <p>Another compilation of Judo matches from 2014 showing the beauty of Judo.</p>
+      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
+        <h3>PLACEHOLDER</h3>
+        <p>PLACEHOLDER</p>
       </section>
     </div>
   </div>
   <div class="row">
     <div class="6u">
     
-      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/rrfdHBxK6iI"><img src="https://i.ytimg.com/vi/rrfdHBxK6iI/mqdefault.jpg" alt="" /></a></span>
-        <h3>JAPANESE JUDO</h3>
-        <p>A compilation of Judo matches in Japan. A great video showing very nice judo matches.</p>
+      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
+        <h3>PLACEHOLDER</h3>
+        <p>PLACEHOLDER</p>
       </section>
     </div>
     <div class="6u">
-      <section class="box special"> <span class="image featured"><a href="http://www.youtube.com/embed/-ldbkg9K70E"><img src="https://i.ytimg.com/vi/-ldbkg9K70E/mqdefault.jpg" alt="" /></a></span>
-        <h3>Japan vs Russia Judo match! 2014</h3>
-        <p>A fine match between a Russian Judo athlete and a Japanese Judo athlete. </p>
+      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
+        <h3>PLACEHOLDER</h3>
+        <p>PLACEHOLDER</p>
       </section>
     </div>
   </div>

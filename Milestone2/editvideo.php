@@ -44,7 +44,15 @@ list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = m
       echo "<div class='row uniform half'><div class='12u'>";
          echo " <input type='text' name='link' value= '$link' > </div></div> <div class='row uniform half collapse-at-2'>";
         echo "<div class='6u'><input type='text' name='length' value= '$length' > </div> ";
-		echo "<div class='6u'> <input type='text' name='HighRes' value= '$res' > </div></div>";
+		echo "<div class='6u'>  <select name='HighRes'>
+            <option selected>$res</option>
+            <option>144</option>
+            <option>240</option>
+            <option>360</option>
+            <option>480</option>
+            <option>720</option>
+            <option>1080</option>
+          </select></div></div>";
       echo "<div class='row uniform half'> <div class='12u'><textarea name='desc' rows='4'>$desc</textarea></div></div>";
 	  if($lang == "English")
 	  {

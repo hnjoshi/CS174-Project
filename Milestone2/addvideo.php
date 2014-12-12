@@ -46,7 +46,7 @@ ini_set('session.gc_maxlifetime', 1800);
           <input type="text" name="length" placeholder="Video Length" />
         </div>
         <div class="6u">
-          <select name="HighRes">
+          <select name='HighRes'>
             <option>Highest Resolution</option>
             <option>144</option>
             <option>240</option>
@@ -90,9 +90,25 @@ ini_set('session.gc_maxlifetime', 1800);
           <input type="text" name="icon" placeholder="Link to Video Icon Image" />
         </div>
       </div>
-      <div class="row uniform half">
-        <div class="12u">
+      <div class="row uniform half collapse-at-2">
+        <div class="6u">
           <input type="text" name="tag" placeholder="Video Tags" />
+        </div>
+        <div class="6u">
+          <select name="category">
+            <option>Video Category</option>
+            <option>Yang Taichi</option>
+            <option>Chen Taichi</option>
+            <option>Sun Taichi</option>
+            <option>Wu Taichi</option>
+            <option>QiGong</option>
+            <option>Shaolin</option>
+            <option>Tae kwon do</option>
+            <option>Wing Chun</option>
+            <option>Aikido</option>
+            <option>Judo</option>
+            <option>KungFu Movie</option>
+          </select>
         </div>
       </div>
       <div class="row uniform">

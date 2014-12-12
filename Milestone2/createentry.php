@@ -10,7 +10,6 @@ ini_set('session.gc_maxlifetime', 1800);
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.dropotron.min.js"></script>
 <script src="js/jquery.scrollgress.min.js"></script>
@@ -22,12 +21,11 @@ ini_set('session.gc_maxlifetime', 1800);
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style-wide.css" />
 </noscript>
-<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head><body>
 <?php include("dbconnect.php"); 
 $tmp = substr($_POST['link'], -11);
 $tit= $_POST['title'];
-$link= "http://www.youtube.com/v/$tmp";
+$link= "http://www.youtube.com/embed/$tmp";
 $length= $_POST['length'];
 $res= $_POST['HighRes'];
 $desc= $_POST['desc'];
@@ -36,10 +34,11 @@ $view= $_POST['count'];
 $type= $_POST['type'];
 $icon= $_POST['icon'];
 $tag= $_POST['tag'];
+$cat= $_POST['category'];
 
 $query = "insert into fun_video "
-                ." (title,videolink,videolength,highestresolution,description,language,viewcount,videotype,iconimage,tag) values "
-                ."('$tit', '$link', '$length', '$res', '$desc', '$lang', '$view', '$type', '$icon', '$tag')"
+                ." (title,videolink,videolength,highestresolution,description,language,viewcount,videotype,iconimage,tag,category) values "
+                ."('$tit', '$link', '$length', '$res', '$desc', '$lang', '$view', '$type', '$icon', '$tag', '$cat')"
         ;
 mysqli_query($conn,$query);
 

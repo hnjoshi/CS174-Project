@@ -37,7 +37,8 @@ echo "<header id=\"header\" class=\"alt\"><nav id=\"nav\">";
               echo "<li><a href=\"category.php?value=videotype = 'Group demo'\">Group Demo</a></li>";
               echo "<li><a href=\"category.php?value=videotype = 'others'\">Others</a></li></ul></li></ul></li>";
       echo "<li><a href=\"addvideo.php\" class=\"button\">Add a Video</a></li>";
-      echo "<li><a href=\"search.php\" class=\"button\">Search</a></li>";
+      echo "<li><form method=post action='searchresults.php'><input type='text' name='search' class='button'></li>";
+	  echo "<li><input type='submit' class='button' value='Search' /></form></li>";
 	  if(isset($_SESSION['uID'])) 
 	  {
 		  echo "<li><a href=\"user.php\" class=\"button\">My Account</a></li>";

@@ -15,7 +15,6 @@
 <script src="js/jquery.dataTables.js"></script>
 <noscript>
 
-<link rel="stylesheet" href="css/jquery.dataTables.css" />
 <link rel="stylesheet" href="css/skel.css" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style-wide.css" />  
@@ -34,7 +33,7 @@ ini_set('session.gc_maxlifetime', 1800);
 include("dbconnect.php"); 
 $ser= $_GET['value'];
 $ser = str_replace('\\', '', $ser);
-$query = "Select id, videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where $ser";
+$query = "Select id, videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag, category  from fun_video_all where $ser";
 $result = mysqli_query($conn, $query);
 include("nav.php");
 ?>
@@ -47,19 +46,21 @@ include("nav.php");
 <section id="main" class="container large">
 
   <form action="get_videos.php" method=post>
-      <table id="results" class="display" cellspacing="0" width="100%">
+   <div class="table-wrapper">
+      <table id="results" >
         <thead>
           <tr>
             <?php if($_SESSION['type']=='Admin') { echo "<th> Edit Video </th>";} ?>
             <th>Video Link</th>
-            <th>Video Title</a></th>
-            <th>Video Length</a></th>
-            <th>Highest Resolution</a></th>
-            <th>Video Description</a></th>
-            <th>Language</a></th>
-            <th>View Count</a></th>
-            <th>Video Type</a></th>
-            <th>Tag</a></th>
+            <th>Video Title</th>
+            <th>Video Length</th>
+            <th>Highest Resolution</th>
+            <th>Video Description</th>
+            <th>Language</th>
+            <th>View Count</th>
+            <th>Video Type</th>
+            <th>Tag</th>
+            <th>Category</th>
             <th>ADD TO FAVORITES</th>
           </tr>
         </thead>
@@ -68,14 +69,14 @@ include("nav.php");
           <?php
           
           $c = 1;
-          while (list($id, $link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = mysqli_fetch_array($result))
+          while (list($id, $link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag, $cat) = mysqli_fetch_array($result))
             {
                 print "<tr>";
 				if($_SESSION['type']=="Admin") 
 				{ 
 				echo "<td><a href=\"editvideo.php?id=$id\" class=\"button\">Edit</a> </td>";
 				} 
-			echo "<td><a href=\"$link\" target=\"_blank\"> <img src=\"$icon\" width=\"100\" height=\"100\"></a> </td>";
+			echo "<td><a href=\"$link\" target=\"_blank\"> <img src=\"$icon\" width=\"150\" height=\"150\"></a> </td>";
 			print "<td> $title </td>";
 			print "<td> $length </td>";
 			print "<td> $res </td>";
@@ -84,6 +85,7 @@ include("nav.php");
 			print "<td> $count </td>";
 			print "<td> $type </td>";
 			print "<td> $tag </td>";
+			print "<td> $cat </td>";
 			print "<td><input type=\"checkbox\"  class=\"input-checkbox\" id=\"checkbox$c\" name=\"fav[]\" value=\"$link|$icon\"><label for=\"checkbox$c\" class=\"input-label\"> ADD</label></td>";
 			                $c++;
 
@@ -94,6 +96,7 @@ include("nav.php");
           ?>
         </tbody>
         </table>
+        </div>
           <div class="row uniform">
             <div class="12u">
               <ul class="actions align-center">

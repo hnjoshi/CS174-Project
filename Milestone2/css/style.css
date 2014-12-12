@@ -628,7 +628,7 @@ ul.actions.fit.small li {
 dl {
 	margin: 0 0 2em 0;
 }
-/* Table 
+Table 
 
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
@@ -675,17 +675,17 @@ dl {
 		}
 
 			table.alt tbody tr td {
-				border: solid 1px #e5e5e5;
+				border: solid 2px #e4e4e4;
 				border-left-width: 0;
 				border-top-width: 0;
 			}
 
 				table.alt tbody tr td:first-child {
-					border-left-width: 1px;
+					border-left-width: 2px;
 				}
 
 			table.alt tbody tr:first-child td {
-				border-top-width: 1px;
+				border-top-width: 2px;
 			}
 
 			table.alt thead {
@@ -695,7 +695,7 @@ dl {
 			table.alt tfoot {
 				border-top: 0;
 			}
-*/
+
 /* Button */
 
 input[type="submit"],  input[type="reset"],  input[type="button"],  .button {

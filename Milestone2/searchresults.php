@@ -36,7 +36,7 @@ ini_set('session.gc_maxlifetime', 1800);
 	session_start();
 include("dbconnect.php"); 
 $ser= $_POST['search'];
-$query = "Select id, videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where title like '%$ser%' || description like '%$ser%' || tag like '%$ser%' ";
+$query = "Select id, videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag, category  from fun_video_all where title like '%$ser%' || description like '%$ser%' || tag like '%$ser%' ";
 $result = mysqli_query($conn, $query);
 include("nav.php");
 ?>
@@ -61,6 +61,7 @@ include("nav.php");
         <th>View Count</a></th>
         <th>Video Type</a></th>
         <th>Tag</a></th>
+        <th>Category</th>
         <th>ADD TO FAVORITES</th>
 
       </tr>
@@ -69,14 +70,14 @@ include("nav.php");
       <?php
 	            $c = 1;
 
-	  while (list($id, $link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = mysqli_fetch_array($result))
+	  while (list($id, $link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag, $cat) = mysqli_fetch_array($result))
         {
 			print "<tr>";
 			if($_SESSION['type']=="Admin") 
 				{ 
 				echo "<td><a href=\"editvideo.php?id=$id\" class=\"button\">Edit</a> </td>";
 				} 
-			echo "<td><a href=\"$link\" target=\"_blank\"> <img src=\"$icon\" width=\"100\" height=\"100\"></a> </td>";
+			echo "<td><a href=\"$link\" target=\"_blank\"> <img src=\"$icon\" width=\"150\" height=\"150\"></a> </td>";
 			print "<td> $title </td>";
 			print "<td> $length </td>";
 			print "<td> $res </td>";
@@ -85,6 +86,7 @@ include("nav.php");
 			print "<td> $count </td>";
 			print "<td> $type </td>";
 			print "<td> $tag </td>";
+			print "<td> $cat </td>";
 			print "<td><input type=\"checkbox\"  class=\"input-checkbox\" id=\"checkbox$c\" name=\"fav[]\" value=\"$link|$icon\"><label for=\"checkbox$c\" class=\"input-label\"> ADD</label></td>";
 			                $c++;
 
