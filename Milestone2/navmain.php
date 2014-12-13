@@ -41,7 +41,7 @@ echo "<header id='header' class='alt'><nav id='nav'>";
 	  {
 		 echo "<li><a href='' class='icon fa-angle-down'>My Account</a>";
 		  echo " <ul><li> <a href='user.php'>User Dashboard</a></li>";
-		  echo " <li> <a href='deletefav.php'>View and Delete Favorite Videos</a></li>";
+		  echo " <li> <a href='deletefav.php'>View and Delete Favorites</a></li>";
 		  echo " <li> <a href='moduser.php'>Edit your User Info</a></li></ul></li>"; 
 	  }
       echo "<li><a href='addvideo.php' class='button'>Add a Video</a></li>";
