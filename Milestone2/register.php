@@ -12,17 +12,16 @@ ini_set('session.gc_maxlifetime', 1800);
 	if(isset($_POST['name']))
 	{
 		$name = $_POST['name'];
-		$uID = $_POST['uID'];
-		$_SESSION['uID'] = $uID;
-		$_SESSION['type'] = "User";
 		$email = $_POST['email'];
+		$_SESSION['uID'] = $email;
+		$_SESSION['type'] = "User";
 		$phone = $_POST['phone'];
 		$pass = $_POST['password'];
 		$age = $_POST['age'];
 		
 		$query = "INSERT INTO user "
-                ." (`uID`, `password`, `name`, `email`) VALUES "
-                ."('$uID', '$pass', '$name', '$email')";
+                ." (`email`, `password`, `name`) VALUES "
+                ."('$email', '$pass', '$name')";
 		mysqli_query($conn, $query);
 		header("Location:user.php");
 	}
@@ -49,12 +48,6 @@ ini_set('session.gc_maxlifetime', 1800);
 
   function checkForm(form)
   {
-    if(form.uID.value == "") {
-      alert("Error: Username cannot be blank!");
-      form.uID.focus();
-      return false;
-    }
-
     if(form.password.value != "" && form.password.value == form.repassword.value) {
       if(form.password.value.length < 8) {
         alert("Error: Password must contain at least eight characters!");
@@ -99,11 +92,8 @@ ini_set('session.gc_maxlifetime', 1800);
             <div class="box">
                 <form method="post" onsubmit="return checkForm(this);" action="register.php">
                     <div class="row uniform half collapse-at-2">
-                        <div class="6u">
-                            <input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text" required>
-                        </div>
-                        <div class="6u">
-                            <input id="name" name="uID" placeholder="Last Name" required="" tabindex="1" type="text" required>
+                        <div class="12u">
+                            <input id="name" name="name" placeholder="Name" required="" tabindex="1" type="text" required>
                         </div>
                     </div>
                     <div class="row uniform half collapse-at-2">
