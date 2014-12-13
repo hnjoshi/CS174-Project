@@ -37,11 +37,17 @@ echo "<header id='header' class='alt'><nav id='nav'>";
               echo "<li><a href='category.php?value=videotype = 'Weapon''>Weapons</a></li>";
               echo "<li><a href='category.php?value=videotype = 'Group demo''>Group Demo</a></li>";
               echo "<li><a href='category.php?value=videotype = 'others''>Others</a></li></ul></li></ul></li>";
+	  if(isset($_SESSION['uID'])) 
+	  {
+		 echo "<li><a href='' class='icon fa-angle-down'>My Account</a>";
+		  echo " <ul><li> <a href='user.php'>User Dashboard</a></li>";
+		  echo " <li> <a href='deletefav.php'>Delete Favorite Video</a></li>";
+		  echo " <li> <a href='moduser.php'>Edit your User Info</a></li></ul></li>"; 
+	  }
       echo "<li><a href='addvideo.php' class='button'>Add a Video</a></li>";
       echo "<li><a href='search.php' class='button'>Search</a></li>";
 	  if(isset($_SESSION['uID'])) 
 	  {
-		  echo "<li><a href='user.php' class='button'>My Account</a></li>";
 		  echo "<li><a href='logout.php' class='button'>Logout</a></li></ul></nav></header>";
 	  }
 	  else
