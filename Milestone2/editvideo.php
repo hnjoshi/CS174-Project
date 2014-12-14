@@ -4,7 +4,7 @@ ini_set('session.gc_maxlifetime', 1800);
 	session_start();
 include("dbconnect.php");	
 $ser= $_GET['id'];
-$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag, cateogry  from fun_video_all where id = $ser";
+$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag, category from fun_video_all where id = $ser";
 $result = mysqli_query($conn, $query);
 list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag, $cat) = mysqli_fetch_array($result)
 	?>

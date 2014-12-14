@@ -24,9 +24,8 @@ ini_set('session.gc_maxlifetime', 1800);
 </noscript>
 </head><body>
 <?php include("dbconnect.php"); 
-$tmp = substr($_POST['link'], -11);
 $tit= $_POST['title'];
-$link= "http://www.youtube.com/v/$tmp";
+$link= $_POST['link'];
 $length= $_POST['length'];
 $res= $_POST['HighRes'];
 $desc= $_POST['desc'];
@@ -39,7 +38,7 @@ $cat= $_POST['category'];
 
 
 $query = "update fun_video_all set "
-                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag', 'category'='$cat' WHERE `id`='$ser'";
+                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag', `category`='$cat' WHERE `id`='$ser'";
 mysqli_query($conn,$query);
 
 include ("nav.php");   
