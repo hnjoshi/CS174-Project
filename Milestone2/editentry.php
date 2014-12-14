@@ -35,10 +35,11 @@ $view= $_POST['count'];
 $type= $_POST['type'];
 $icon= $_POST['icon'];
 $tag= $_POST['tag'];
+$cat= $_POST['category'];
 
 
-$query = "update fun_video set "
-                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag' WHERE `id`='$ser'";
+$query = "update fun_video_all set "
+                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag', 'category'='$cat' WHERE `id`='$ser'";
 mysqli_query($conn,$query);
 
 include ("nav.php");   

@@ -19,9 +19,8 @@ ini_set('session.gc_maxlifetime', 1800);
 		$pass = $_POST['password'];
 		$age = $_POST['age'];
 		
-		$query = "INSERT INTO user "
-                ." (`email`, `password`, `name`) VALUES "
-                ."('$email', '$pass', '$name')";
+		$query = "update user set "
+                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag' WHERE `id`='$ser'";
 		mysqli_query($conn, $query);
 		header("Location:user.php");
 	}
@@ -86,11 +85,11 @@ ini_set('session.gc_maxlifetime', 1800);
 <!-- Main -->
         <section id="main" class="container small">
             <header>
-                <h2>Register for a Fun Video Account</h2>
-                <p>Upon registration you will be able favorite videos! </p>
+                <h2>Modify Your Account Information</h2>
+                <p>Your current profile information is displayed below. To update simply change it in the field and hit "Update"</p>
             </header>
             <div class="box">
-                <form method="post" onsubmit="return checkForm(this);" action="register.php">
+                <form method="post" onsubmit="return checkForm(this);" action="moduser.php">
                     <div class="row uniform half collapse-at-2">
                         <div class="12u">
                             <input id="name" name="name" placeholder="Name" required="" tabindex="1" type="text" required>

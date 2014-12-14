@@ -4,9 +4,9 @@ ini_set('session.gc_maxlifetime', 1800);
 	session_start();
 include("dbconnect.php");	
 $ser= $_GET['id'];
-$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag  from fun_video where id = $ser";
+$query = "Select videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag, cateogry  from fun_video_all where id = $ser";
 $result = mysqli_query($conn, $query);
-list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = mysqli_fetch_array($result)
+list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag, $cat) = mysqli_fetch_array($result)
 	?>
 <!DOCTYPE HTML>
 <html>
@@ -67,7 +67,22 @@ list($link, $title, $length, $res, $desc, $lang, $count, $type, $icon, $tag) = m
      echo " <div class='row uniform half collapse-at-2'> <div class='6u'> <select name='type' multiple>";
            echo " <option selected>$type</option><option>Tutorial</option><option>Entertainment</option><option>Application</option> <option>Weapon</option><option>Group demo</option><option>Others</option></select>
         </div> <div class='6u'> <input type='text' name='icon' value= '$icon' ></div> </div>";
-      echo "<div class='row uniform half'> <div class='12u'><input type='text' name='tag' value= '$tag' ></div> </div>";
+      echo "<div class='row uniform half collapse-at-2'> <div class='6u'><input type='text' name='tag' value= '$tag' ></div><div class='6u'>
+          <select name='category'>
+            <option selected>$cat</option>
+            <option>Yang Taichi</option>
+            <option>Chen Taichi</option>
+            <option>Sun Taichi</option>
+            <option>Wu Taichi</option>
+            <option>QiGong</option>
+            <option>Shaolin</option>
+            <option>Tae kwon do</option>
+            <option>Wing Chun</option>
+            <option>Aikido</option>
+            <option>Judo</option>
+            <option>KungFu Movie</option>
+          </select>
+        </div></div>";
 	  ?>
       <div class='row uniform'>
         <div class='12u'>
