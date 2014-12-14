@@ -3,24 +3,19 @@ ini_set('session.gc_maxlifetime', 1800);
 	session_set_cookie_params(1800);
 	session_start();
 	include("dbconnect.php");
-	
-	if(isset($_SESSION['uID']))
-	{
-		header("user.php");
-	}
-	
+	$uID = $_SESSION['uID'];
+	$query = "Select email, password, name from user where email = '$uID'";
+	$result = mysqli_query($conn, $query);
+	list($email, $pass, $name) = mysqli_fetch_array($result);
+		
 	if(isset($_POST['name']))
 	{
 		$name = $_POST['name'];
 		$email = $_POST['email'];
-		$_SESSION['uID'] = $email;
-		$_SESSION['type'] = "User";
-		$phone = $_POST['phone'];
 		$pass = $_POST['password'];
-		$age = $_POST['age'];
-		
 		$query = "update user set "
-                ." `title`='$tit', `videolink`='$link', `videolength`='$length', `highestresolution`='$res', `description`='$desc', `language`='$lang', `viewcount`='$view', `videotype`='$type', `iconimage`='$icon', `tag`='$tag' WHERE `id`='$ser'";
+                ." `email`='$email', `password`='$pass' , `name`='$name' WHERE `email`='$uID'";
+		$_SESSION['uID']=$email;
 		mysqli_query($conn, $query);
 		header("Location:user.php");
 	}
@@ -28,7 +23,7 @@ ini_set('session.gc_maxlifetime', 1800);
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Register</title>
+<title>Update Info</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -65,10 +60,6 @@ ini_set('session.gc_maxlifetime', 1800);
         form.password.focus();
         return false;
       }
-    } else {
-      alert("Error: Please check that you've entered and confirmed your password!");
-      form.password.focus();
-      return false;
     }
 
     alert("Welcome to Fun Video " + form.username.value);
@@ -88,35 +79,35 @@ ini_set('session.gc_maxlifetime', 1800);
                 <h2>Modify Your Account Information</h2>
                 <p>Your current profile information is displayed below. To update simply change it in the field and hit "Update"</p>
             </header>
-            <div class="box">
-                <form method="post" onsubmit="return checkForm(this);" action="moduser.php">
-                    <div class="row uniform half collapse-at-2">
-                        <div class="12u">
-                            <input id="name" name="name" placeholder="Name" required="" tabindex="1" type="text" required>
+            <?php echo "<div class='box'>
+                <form method='post' onsubmit='return checkForm(this);' action='moduser.php'>
+                    <div class='row uniform half collapse-at-2'>
+                        <div class='12u'>
+                            <input name='name' type='text' value = $name>
                         </div>
                     </div>
-                    <div class="row uniform half collapse-at-2">
-                        <div class="12u">
-                           <input type="email" name="email" id="email" value="" placeholder="Email Address" required>
+                    <div class='row uniform half collapse-at-2'>
+                        <div class='12u'>
+                           <input type='email' name='email' id='email' value = $uID>
                         </div>
                     </div>
-                    <div class="row uniform half collapse-at-2">
-                        <div class="6u">
-                            <input type="password" id="password" name="password" required="" placeholder="Password" required>
+                    <div class='row uniform half collapse-at-2'>
+                        <div class='6u'>
+                            <input type='password' id='password' name='password' value = $pass>
                         </div>
-                        <div class="6u">
-                            <input type="password" id="repassword" name="repassword" required="" placeholder="Verify Your Password" required>
+                        <div class='6u'>
+                            <input type='password' id='repassword' name='repassword' placeholder='Please enter password again if you wish to change' >
                         </div>
                     </div>
-                    <div class="row uniform">
-                        <div class="12u">
-                            <ul class="actions align-center">
-                                <input class="buttom" name="submit" id="submit" tabindex="5" value="Submit" type="submit">
+                    <div class='row uniform'>
+                        <div class='12u'>
+                            <ul class='actions align-center'>
+                                <input class='buttom' name='submit' id='submit' tabindex='5' value='Update' type='submit'>
                             </ul>
                         </div>
                     </div>
                 </form>
-            </div>
+            </div>"; ?>
         </section>
 
 <!-- Footer -->
