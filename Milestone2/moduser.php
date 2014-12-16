@@ -6,7 +6,6 @@ ini_set('session.gc_maxlifetime', 1800);
 	$uID = $_SESSION['uID'];
 	$query = "Select email, password, name from user where email = '$uID'";
 	$result = mysqli_query($conn, $query);
-	list($email, $pass, $name) = mysqli_fetch_array($result);
 		
 	if(isset($_POST['name']))
 	{
@@ -79,24 +78,26 @@ ini_set('session.gc_maxlifetime', 1800);
                 <h2>Modify Your Account Information</h2>
                 <p>Your current profile information is displayed below. To update simply change it in the field and hit "Update"</p>
             </header>
-            <?php echo "<div class='box'>
+            <?php 
+			list($email, $pass, $name) = mysqli_fetch_array($result);
+			echo "<div class='box'>
                 <form method='post' onsubmit='return checkForm(this);' action='moduser.php'>
                     <div class='row uniform half collapse-at-2'>
                         <div class='12u'>
-                            <input name='name' type='text' value = $name>
+                            <input name='name' type='text' value = '$name'>
                         </div>
                     </div>
                     <div class='row uniform half collapse-at-2'>
                         <div class='12u'>
-                           <input type='email' name='email' id='email' value = $uID>
+                           <input type='email' name='email' id='email' value = '$uID'>
                         </div>
                     </div>
                     <div class='row uniform half collapse-at-2'>
                         <div class='6u'>
-                            <input type='password' id='password' name='password' value = $pass>
+                            <input type='password' id='password' name='password' value = '$pass'>
                         </div>
                         <div class='6u'>
-                            <input type='password' id='repassword' name='repassword' placeholder='Please enter password again if you wish to change' >
+                            <input type='password' id='repassword' name='repassword' placeholder='Enter again to change password' >
                         </div>
                     </div>
                     <div class='row uniform'>
