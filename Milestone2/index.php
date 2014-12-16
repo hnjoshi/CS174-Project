@@ -15,6 +15,9 @@ session_start(); ?>
 <script src="js/skel.min.js"></script>
 <script src="js/skel-layers.min.js"></script>
 <script src="js/init.js"></script>
+        <script src="jquery.js"></script>
+        <!--<script src="slideshow.js"></script>-->
+        <script src="youtubeplayer.js"></script>
 <noscript>
 <link rel="stylesheet" href="css/skel.css" />
 <link rel="stylesheet" href="css/style.css" />
@@ -30,7 +33,6 @@ session_start(); ?>
     <li><a href="addvideo.php" class="button special">Add a Video!</a></li>
   </ul>
 </section>
-
 <!-- Main -->
 <section id="main" class="container"> 
   
@@ -48,6 +50,31 @@ session_start(); ?>
       </div>
     </form>
   </section>
+  
+  
+  
+<section style="margin-top:5%; margin-bottom:5%;" align="center"> <!--
+        Slideshow sources:
+        http://stackoverflow.com/questions/13807788/web-based-fullscreen-slideshow-with-video-elements
+        http://stackoverflow.com/questions/13807788/web-based-fullscreen-slideshow-with-video-elements
+        https://developers.google.com/youtube/iframe_api_reference
+        -->
+
+        <div id="ytplayer"></div>
+
+        <div id="browse-container">
+            <button class="button" id="prev-button">Previous</button>
+            <button class="button" id="next-button">Next</button>
+        </div>
+        
+        <div class="slideshow-overlay">
+        
+        </div> </section>
+  
+  
+  
+  
+  
   <section class="box special">
     <header class="major">
       <h2>Here are some featured Videos!</h2>
