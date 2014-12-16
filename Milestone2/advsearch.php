@@ -35,10 +35,15 @@ ini_set('session.gc_maxlifetime', 1800);
 	session_set_cookie_params(1800);
 	session_start();
 include("dbconnect.php");
-if(isset($_POST['adv']))
+if(isset($_POST['HighRes']))
 {
-$ser= $_POST['adv'];
-$query = "Select id, videolink, title, videolength, highestresolution, description,language, viewcount, videotype, iconimage, tag, category  from fun_video_all where title like '%$ser%' || description like '%$ser%' || tag like '%$ser%' ";
+$res= $_POST['HighRes'];
+$view= $_POST['views'];
+$length= $_POST['length'];
+$lang= $_POST['lang'];
+$type= $_POST['type'];
+$category= $_POST['category'];
+$query = "Select id, videolink, title, videolength, highestresolution, description, language, viewcount, videotype, iconimage, tag, category  from fun_video_all where $res and $view and $length and $lang and $type and $category";
 $result = mysqli_query($conn, $query);
 }
 include("nav.php");
@@ -52,45 +57,45 @@ include("nav.php");
     <form method=post action="advsearch.php">
       <div class="row uniform half collapse-at-6">
         <div class="2u">
-         <select name='HighRes'>
+         <select name='HighRes' >
           <option>Highest Resolution</option>
-          <option value "highestresolution='144'">144p</option>
-          <option value "highestresolution='240'">240p</option>
-          <option value "highestresolution='360'">360p</option>
-          <option value "highestresolution='480'">480p</option>
-          <option value "highestresolution='720'">720p</option>
-          <option value "highestresolution='1080'">1080p</option>
+          <option value ="highestresolution='144'">144p</option>
+          <option value = "highestresolution='240'">240p</option>
+          <option value ="highestresolution='360'">360p</option>
+          <option value ="highestresolution='480'">480p</option>
+          <option value ="highestresolution='720'">720p</option>
+          <option value ="highestresolution='1080'">1080p</option>
         </select>
         </div>
         <div class="2u">
-        <select name='views'>
+        <select name='views' >
           <option>View Count</option>
-          <option value "viewcount between '50000' and '75000'">50,000 - 75,000</option>
-          <option value "viewcount between '75001' and '100000'">75,000 - 100,000</option>
-          <option value "viewcount between '100001' and '125000'">100,001 - 125,000</option>
-          <option value "viewcount between '125001' and '150000'">125,001 - 150,000</option>
-          <option value "viewcount &gt '150000'">150,000 + </option>
+          <option value ="viewcount between '50000' and '75000'">50,000 - 75,000</option>
+          <option value ="viewcount between '75001' and '100000'">75,000 - 100,000</option>
+          <option value ="viewcount between '100001' and '125000'">100,001 - 125,000</option>
+          <option value ="viewcount between '125001' and '150000'">125,001 - 150,000</option>
+          <option value ="viewcount &gt '150000'">150,000 + </option>
         </select>
         </div>
         <div class="2u">
-        <select name='length'>
+        <select name='length' >
           <option>Video Length</option>
-          <option value "videolength < '5'">0-5 min</option>
-          <option value "videolength between '10' and '20'">10-20 min</option>
-          <option value "videolength between '20' and '40'">20-40 min</option>
-          <option value "videolength between '40' and '60'">40-60 min</option>
-          <option value "videolength &gt '60'">More than 1 hr </option>
+          <option value ="videolength < '5'">0-5 min</option>
+          <option value ="videolength between '10' and '20'">10-20 min</option>
+          <option value ="videolength between '20' and '40'">20-40 min</option>
+          <option value ="videolength between '40' and '60'">40-60 min</option>
+          <option value ="videolength &gt '60'">More than 1 hr </option>
         </select>
         </div>
        <div class="2u">
-        <select name='lang'>
+        <select name='lang' >
           <option>Language</option>
-          <option value "language = 'English'">English</option>
-          <option value "language = 'Non-English'">Non-English</option>
+          <option value ="language = 'English'">English</option>
+          <option value ="language = 'Non-English'">Non-English</option>
         </select>        
       </div>
       <div class="2u">
-          <select name="type">
+          <select name="type" >
             <option>Video Type</option>
             <option value = "videotype = 'Tutorial'">Tutorial</option>
             <option value = "videotype = 'Entertainment'">Entertainment</option>
@@ -101,19 +106,19 @@ include("nav.php");
           </select>
         </div>
         <div class="2u">
-          <select name="category">
+          <select name="category" >
             <option>Video Category</option>
-            <option>Yang Taichi</option>
-            <option>Chen Taichi</option>
-            <option>Sun Taichi</option>
-            <option>Wu Taichi</option>
-            <option>QiGong</option>
-            <option>Shaolin</option>
-            <option>Tae kwon do</option>
-            <option>Wing Chun</option>
-            <option>Aikido</option>
-            <option>Judo</option>
-            <option>KungFu Movie</option>
+            <option value = "category='Yang Taichi'">Yang Taichi</option>
+            <option value = "category='Chen Taichi'">Chen Taichi</option>
+            <option value = "category='Sun Taichi'">Sun Taichi</option>
+            <option value = "category='Wu Taichi'">Wu Taichi</option>
+            <option value = "category='QiGong'">QiGong</option>
+            <option value = "category='Shaolin'">Shaolin</option>
+            <option value = "category='Tae kwon do'">Tae kwon do</option>
+            <option value = "category='Wing Chun'">Wing Chun</option>
+            <option value = "category='Aikido'">Aikido</option>
+            <option value = "category='Judo">Judo</option>
+            <option value = "category='KungFu Movie'">KungFu Movie</option>
           </select>
         </div>
       </div>
@@ -131,7 +136,7 @@ include("nav.php");
   
 </section>
 <?php 
-if(isset($_POST['adv']))
+if(isset($_POST['HighRes']))
 {
 echo "<section id='main' class='container large'>";
   echo "<form action='get_videos.php' method=post>";
