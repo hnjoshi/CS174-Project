@@ -10,6 +10,7 @@ echo "<header id='header' class='alt'><nav id='nav'>";
        echo "<li> <a href=\"\" class=\"icon fa-angle-down\">Categories</a>";
          echo "<ul><li> <a href=\"\">Video Length</a><ul>";
               echo " <li><a href=\"category.php?value=videolength < '5'\">0-5 min</a></li>";
+			   echo " <li><a href=\"category.php?value=videolength between '5' and '10'\">5-10 min</a></li>";
               echo "<li><a href=\"category.php?value=videolength between '10' and '20'\">10-20 min</a></li>";
                echo "<li><a href=\"category.php?value=videolength between '20' and '40'\">20-40 min</a></li>";
                echo "<li><a href=\"category.php?value=videolength between '40' and '60'\">40- 60 min</a></li>";
