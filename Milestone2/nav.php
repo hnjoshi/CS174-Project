@@ -30,6 +30,18 @@ echo "<ul><li><a href=\"index.php\">Home</a></li>";
                echo "<li><a href=\"category.php?value=viewcount between '100001' and '125000'\">100,001 – 125,000</a></li>";
                echo "<li><a href=\"category.php?value=viewcount between '125001' and '150000'\">125,001 – 150,000</a></li>";
                echo "<li><a href=\"category.php?value=viewcount > '150000'\">150,000+</a></li></ul></li>";
+		   echo "<li> <a href=\"\">Video Category</a><ul>";
+               echo "<li><a href=\"category.php?value=category='Yang Taichi' \">Yang Taichi</a></li>";
+               echo "<li><a href=\"category.php?value=category='Chen Taichi' \">Chen Taichi</a></li>";
+               echo "<li><a href=\"category.php?value=category='Sun Taichi'\">Sun Taichi</a></li>";
+               echo "<li><a href=\"category.php?value=category='Wu Taichi'\">Wu Taichi</a></li>";
+               echo "<li><a href=\"category.php?value=category='QiGong'\">QiGong</a></li>";
+			   echo "<li><a href=\"category.php?value=category='Shaolin'\">Shaolin</a></li>";
+			   echo "<li><a href=\"category.php?value=category='Tae kwon do'\">Tae Kwon Do</a></li>";
+			   echo "<li><a href=\"category.php?value=category='Wing Chun'\">Wing Chun</a></li>";
+			   echo "<li><a href=\"category.php?value=category='Aikido'\">Aikido</a></li>";
+			   echo "<li><a href=\"category.php?value=category='Judo'\">Judo</a></li>";
+               echo "<li><a href=\"category.php?value=category='KungFu Movie'\">KungFu Movie</a></li></ul></li>";
            echo "<li> <a href=\"\">Video Type</a><ul>";
                echo "<li><a href=\"category.php?value=videotype = 'Tutorial'\">Tutorial</a></li>";
                echo "<li><a href=\"category.php?value=videotype = 'Entertainment'\">Entertainment</a></li>";
@@ -46,6 +58,7 @@ echo "<ul><li><a href=\"index.php\">Home</a></li>";
 	  }
       echo "<li><a href='addvideo.php' class='button'>Add a Video</a></li>";
       echo "<li><a href='search.php' class='button'>Search</a></li>";
+	  echo "<li><a href='advsearch.php' class='button'>Advanced Search</a></li>";
 	  if(isset($_SESSION['uID'])) 
 	  {
 		  echo "<li><a href='logout.php' class='button'>Logout</a></li></ul></nav></header>";
