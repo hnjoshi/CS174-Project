@@ -73,14 +73,37 @@ include("nav.php");
 		var_dump($_SESSION['favorites']); **/
 					
 		//Display the videos!!!!!
+		print "</section>";
+
 		if(isset($_SESSION["favorites"]["$uID"])) {
 			$values = $_SESSION["favorites"]["$uID"];
 			
 			print "<header><h3>These are your latest favorite videos: </h3></header>";
+			/**
 			foreach($values as $v) {
 				$arr = explode("|",$v);
 				print "<p><a href=\"$arr[0]\"><img src=\"$arr[1]\" alt='VIDEO' /></a></p>";
-			}
+			} **/
+				
+				print "<table align='left'>";
+				print "<tr>";
+				for($i = 0; $i < count($values) && $i < 5; $i++) { 
+					if($i % 2 == 0) {
+						print "</tr><tr>";
+					}
+					
+				    $arr = explode("|",$values[$i]);
+				    $temp = "$arr[0]";
+					print "<td>";
+					print "<iframe width='640' height='390' src='$temp' frameborder='0' allowfullscreen></iframe>";
+					//width="640" height="390"
+					print "</td>";
+					
+				}
+				print "</tr>";
+
+				print "</table>";	
+			
 		} else {
 			include("dbconnect.php"); 
 			$query = "Select fvideos from user where email = '$uID'";
@@ -88,19 +111,36 @@ include("nav.php");
 			if (list($fvid) = mysqli_fetch_array($result))
             {
 				$fvid = explode("$$", $fvid);
-				print "<header><h3>These are your favorite videos: </h3></header>";
+				print "<header><h3 align='center'>These are your favorite videos: </h3></header>";
 				
+				/**
 				foreach($fvid as $v) {
 					if(!empty($v)){		
 					$arr = explode("|",$v);
 					print "<p><a href=\"$arr[0]\"><img src=\"$arr[1]\" alt='VIDEO' /></a></p>";}
-				}
+				} **/
+				
+				print "<table align='left'>";
+				print "<tr>";
+				for($i = 0; $i < 5 && $i < count($fvid); $i++) { 
+					if($i % 2 == 0) {
+						print "</tr><tr>";
+					}
 					
+				    $arr = explode("|",$fvid[$i]);
+					print "<td>";
+					print "<iframe width='640' height='390' src='$arr[0]' frameborder='0' allowfullscreen></iframe>";
+		  			//print "<a href=\"$arr[0]\"><img src=\"$arr[1]\" alt=\"Favorite Video!\"  width='250' height='250' /></a>";
+					print "</td>";
+					
+				}
+				print "</tr>";
+
+				print "</table>";					
 			}
-		}
+		} 
 	 ?>
      		
-</section>
 <!-- Footer -->
 <footer id="footer">
   <ul class="copyright">
