@@ -25,7 +25,7 @@ session_start(); ?>
 </noscript>
 </head>
 <body class="landing">
-<?php include("navmain.php"); ?>
+<?php include("navmain.php"); include("dbconnect.php") ?>
 <!-- Banner -->
 <section id="banner">
   <h2>CS174 Fun Video!</h2>
@@ -86,45 +86,116 @@ session_start(); ?>
       </section>
 <div class="row">
     <div class="6u">
-      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
-        <h3>PLACEHOLDER</h3>
-        <p>PLACEHOLDER </p>
+      <section class="box special"> <span class="image featured">
+      <?php
+	  	$randomnum = rand(1,150); 
+	  	$query = "select * from fun_video_all where id = $randomnum" ; //175
+		$result =  $conn->query($query); 
+		$row = $result->fetch_assoc();
+		$link = $row["videolink"];
+		$image = $row["iconimage"];
+		$title = $row["title"];
+		$category = $row["category"];
+	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	    ?> </span>
+        <h3><?php echo "Title: " .  $title; ?></h3>
+        <p><?php echo "Category: " .  $category; ?></p>
       </section>
     </div>
     <div class="6u">
-      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
-        <h3>PLACEHOLDER</h3>
-        <p>PLACEHOLDER</p>
+      <section class="box special"> <span class="image featured">
+      <?php
+	    $randomnum = rand(151,300); 
+	  	$query = "select * from fun_video_all where id = $randomnum" ;
+		$result =  $conn->query($query); 
+		$row = $result->fetch_assoc();
+		$link = $row["videolink"];
+		$image = $row["iconimage"];
+		$title = $row["title"];
+		$category = $row["category"];
+		
+	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	    ?> </span>
+        <h3><?php echo "Title: " .  $title; ?></h3>
+        <p><?php echo "Category: " .  $category; ?></p>
       </section>
     </div>
   </div>
   <div class="row">
     <div class="6u">
-      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
-        <h3>PLACEHOLDER</h3>
-        <p>PLACEHOLDER</p>
+      <section class="box special"> <span class="image featured">
+      <?php
+	    $randomnum = rand(301,450); 
+	  	$query = "select * from fun_video_all where id = $randomnum" ;
+		$result =  $conn->query($query); 
+		$row = $result->fetch_assoc();
+		$link = $row["videolink"];
+		$image = $row["iconimage"];
+		$title = $row["title"];
+		$category = $row["category"];
+		
+	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	    ?> </span>
+        <h3><?php echo "Title: " .  $title; ?></h3>
+        <p><?php echo "Category: " .  $category; ?></p>
       </section>
     </div>
     <div class="6u">
     
-      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
-        <h3>PLACEHOLDER</h3>
-        <p>PLACEHOLDER</p>
+      <section class="box special"> <span class="image featured">
+      <?php
+	  	$randomnum = rand(451,600); 
+	  	$query = "select * from fun_video_all where id = $randomnum" ;
+		$result =  $conn->query($query); 
+		$row = $result->fetch_assoc();
+		$link = $row["videolink"];
+		$image = $row["iconimage"];
+		$title = $row["title"];
+		$category = $row["category"];
+		
+	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	    ?> </span>
+        <h3><?php echo "Title: " .  $title; ?></h3>
+        <p><?php echo "Category: " .  $category; ?></p>
       </section>
     </div>
   </div>
   <div class="row">
     <div class="6u">
     
-      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
-        <h3>PLACEHOLDER</h3>
-        <p>PLACEHOLDER</p>
+      <section class="box special"> <span class="image featured">
+      <?php
+	  	$randomnum = rand(601,750); 
+	  	$query = "select * from fun_video_all where id = $randomnum";
+		$result =  $conn->query($query); 
+		$row = $result->fetch_assoc();
+		$link = $row["videolink"];
+		$image = $row["iconimage"];
+		$title = $row["title"];
+		$category = $row["category"];
+		
+	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	    ?> </span>
+        <h3><?php echo "Title: " .  $title; ?></h3>
+        <p><?php echo "Category: " .  $category; ?></p>
       </section>
     </div>
     <div class="6u">
-      <section class="box special"> <span class="image featured"><a href=""><img src="https://i.ytimg.com/vi/asdf/mqdefault.jpg" alt="" /></a></span>
-        <h3>PLACEHOLDER</h3>
-        <p>PLACEHOLDER</p>
+      <section class="box special"> <span class="image featured">
+      <?php
+	    $randomnum = rand(751,999); 
+	  	$query = "select * from fun_video_all where id = $randomnum";
+		$result =  $conn->query($query); 
+		$row = $result->fetch_assoc();
+		$link = $row["videolink"];
+		$image = $row["iconimage"];
+		$title = $row["title"];
+		$category = $row["category"];
+		
+	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	    ?> </span>
+        <h3><?php echo "Title: " .  $title; ?></h3>
+        <p><?php echo "Category: " .  $category; ?></p>
       </section>
     </div>
   </div>
