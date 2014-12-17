@@ -105,6 +105,12 @@ include("nav.php");
 					}
 				    $arr = explode("|",$values[$i]);					
 				    $temp = "$arr[0]";
+								
+					if(strpos($temp, 'watch?v=') !== false) {
+						$temp = str_ireplace("watch?v=", "embed/", $temp);
+					}
+					
+					
 					print "<td>";
 					print "<iframe width='640' height='390' src='$temp' frameborder='0' allowfullscreen></iframe>";
 					//width="640" height="390"
