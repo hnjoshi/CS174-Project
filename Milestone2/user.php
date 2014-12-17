@@ -192,7 +192,12 @@ include("nav.php");
 					}
 					
 					print "<td>";
-					$temp = $values[$i];					
+					$temp = $values[$i];	
+			
+					if(strpos($temp, 'watch?v=') !== false) {
+						$temp = str_ireplace("watch?v=", "embed/", $temp);
+					}	
+										
 					print "<iframe width='640' height='390' src='$temp' frameborder='0' allowfullscreen></iframe>";
 					print "</td>";
 
