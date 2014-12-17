@@ -74,11 +74,18 @@ include("nav.php");
 					
 		//Display the videos!!!!!
 		print "</section>";
-
+		
+		include("dbconnect.php"); 
+		$query = "Select fvideos from user where email = '$uID'";
+		$result = $conn->query($query);
+		$row = $result->fetch_assoc();
+				
+		//var_dump($row["fvideos"]);
+				
 		if(isset($_SESSION["favorites"]["$uID"])) {
 			$values = $_SESSION["favorites"]["$uID"];
 			
-			print "<header><h3>These are your latest favorite videos: </h3></header>";
+			print "<header><h3 align='center'>These are your latest favorite videos: </h3></header>";
 			/**
 			foreach($values as $v) {
 				$arr = explode("|",$v);
@@ -87,12 +94,16 @@ include("nav.php");
 				
 				print "<table align='left'>";
 				print "<tr>";
-				for($i = 0; $i < count($values) && $i < 5; $i++) { 
+								
+				$values = array_filter($values, 'strlen');
+				$values = array_filter($values);
+				$values = array_values($values);				
+				
+				for($i = 0; $i < count($values) && $i < 5; $i++) { 					
 					if($i % 2 == 0) {
 						print "</tr><tr>";
 					}
-					
-				    $arr = explode("|",$values[$i]);
+				    $arr = explode("|",$values[$i]);					
 				    $temp = "$arr[0]";
 					print "<td>";
 					print "<iframe width='640' height='390' src='$temp' frameborder='0' allowfullscreen></iframe>";
@@ -104,7 +115,7 @@ include("nav.php");
 
 				print "</table>";	
 			
-		} else {
+		} else if ($row["fvideos"] != NULL) {
 			include("dbconnect.php"); 
 			$query = "Select fvideos from user where email = '$uID'";
 			$result = mysqli_query($conn, $query);
@@ -119,26 +130,77 @@ include("nav.php");
 					$arr = explode("|",$v);
 					print "<p><a href=\"$arr[0]\"><img src=\"$arr[1]\" alt='VIDEO' /></a></p>";}
 				} **/
-				
+				$fvid = array_filter($fvid, 'strlen');
+				$fvid = array_filter($fvid);
+				$fvid = array_values($fvid);				
 				print "<table align='left'>";
 				print "<tr>";
+				
 				for($i = 0; $i < 5 && $i < count($fvid); $i++) { 
-					if($i % 2 == 0) {
+					if($i  % 2 == 0) {
 						print "</tr><tr>";
 					}
-					
 				    $arr = explode("|",$fvid[$i]);
 					print "<td>";
 					print "<iframe width='640' height='390' src='$arr[0]' frameborder='0' allowfullscreen></iframe>";
 		  			//print "<a href=\"$arr[0]\"><img src=\"$arr[1]\" alt=\"Favorite Video!\"  width='250' height='250' /></a>";
 					print "</td>";
 					
-				}
+				} 
 				print "</tr>";
 
 				print "</table>";					
 			}
-		} 
+		} else {
+				print "<header><h3 align='center'>These are Recommended videos You should Watch: </h3></header>";
+				
+				$randomnum  = rand(1,150); 
+	  			$randomnum1 = rand(151,300); 
+	  			$randomnum2 = rand(450,580); 
+	  			$randomnum3 = rand(700,990); 
+	  			
+				$query = "select * from fun_video_all where id = $randomnum";
+				$query1 = "select * from fun_video_all where id = $randomnum1";
+				$query2 = "select * from fun_video_all where id = $randomnum2";
+				$query3 = "select * from fun_video_all where id = $randomnum3";
+				
+				$result =  $conn->query($query); 
+				$row = $result->fetch_assoc();
+				$link = $row["videolink"];
+				
+				$result =  $conn->query($query1); 
+				$row = $result->fetch_assoc();
+				$link1 = $row["videolink"];
+		
+				$result =  $conn->query($query2); 
+				$row = $result->fetch_assoc();
+				$link2 = $row["videolink"];
+		
+				$result =  $conn->query($query3); 
+				$row = $result->fetch_assoc();
+				$link3 = $row["videolink"];
+				
+				$values = array($link, $link1, $link2, $link3);
+				
+				print "<table align='left'>";
+				print "<tr>";
+				
+				
+				for($i = 0; $i < count($values); $i++) {
+					if($i  % 2 == 0) {
+						print "</tr><tr>";
+					}
+					
+					print "<td>";
+					$temp = $values[$i];					
+					print "<iframe width='640' height='390' src='$temp' frameborder='0' allowfullscreen></iframe>";
+					print "</td>";
+
+				}
+				print "</tr>";
+
+				print "</table>";
+		}
 	 ?>
      		
 <!-- Footer -->
