@@ -96,7 +96,7 @@ session_start(); ?>
 		$image = $row["iconimage"];
 		$title = $row["title"];
 		$category = $row["category"];
-	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	   echo " <a href='$link'> <img src='$image' width='300' height='400' alt='' /></a> "
 	    ?> </span>
         <h3><?php echo "Title: " .  $title; ?></h3>
         <p><?php echo "Category: " .  $category; ?></p>
@@ -114,7 +114,7 @@ session_start(); ?>
 		$title = $row["title"];
 		$category = $row["category"];
 		
-	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	   echo " <a href='$link'> <img src='$image' width='300' height='400' alt='' /></a> "
 	    ?> </span>
         <h3><?php echo "Title: " .  $title; ?></h3>
         <p><?php echo "Category: " .  $category; ?></p>
@@ -134,7 +134,7 @@ session_start(); ?>
 		$title = $row["title"];
 		$category = $row["category"];
 		
-	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	   echo " <a href='$link'> <img src='$image' width='300' height='400' alt='' /></a> "
 	    ?> </span>
         <h3><?php echo "Title: " .  $title; ?></h3>
         <p><?php echo "Category: " .  $category; ?></p>
@@ -153,7 +153,7 @@ session_start(); ?>
 		$title = $row["title"];
 		$category = $row["category"];
 		
-	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	   echo " <a href='$link'> <img src='$image' width='300' height='400' alt='' /></a> "
 	    ?> </span>
         <h3><?php echo "Title: " .  $title; ?></h3>
         <p><?php echo "Category: " .  $category; ?></p>
@@ -174,7 +174,7 @@ session_start(); ?>
 		$title = $row["title"];
 		$category = $row["category"];
 		
-	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	   echo " <a href='$link'> <img src='$image' width='300' height='400' alt='' /></a> "
 	    ?> </span>
         <h3><?php echo "Title: " .  $title; ?></h3>
         <p><?php echo "Category: " .  $category; ?></p>
@@ -192,7 +192,7 @@ session_start(); ?>
 		$title = $row["title"];
 		$category = $row["category"];
 		
-	   echo " <a href='$link'> <img src='$image' alt='' /></a> "
+	   echo " <a href='$link'> <img src='$image' width='300' height='400' alt='' /></a> "
 	    ?> </span>
         <h3><?php echo "Title: " .  $title; ?></h3>
         <p><?php echo "Category: " .  $category; ?></p>
